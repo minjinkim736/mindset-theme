@@ -26,13 +26,13 @@ function mindset_enqueues()
         array('strategy' => 'defer')
     );
     // Enqueue the new JS file only on the Contact page
-    if (is_page('contact')) {
+    if (is_page('contact')) {  // or if(is_page('15')) {
         wp_enqueue_script(
             'scroll-button-color-change', // unique handle
             get_theme_file_uri('assets/js/scroll-button-color-change.js'), //file path
             array('mindset-scroll-to-top'), // Set dependency
             wp_get_theme()->get('Version'),
-            true
+            array('strategy' => 'defer')
         );
     }
 }
@@ -69,3 +69,6 @@ function mindset_add_custom_image_sizes($size_names)
     return array_merge($size_names, $new_sizes);
 }
 add_filter('image_size_names_choose', 'mindset_add_custom_image_sizes');
+
+// load our custom blocks
+require get_theme_file_path() . '/mindset-blocks/mindset-blocks.php';
