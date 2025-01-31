@@ -9,7 +9,11 @@
   "description": "custom blocks for the mindset site",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "typography": {
+      "textAlign": true,
+      "fontSize": true
+    }
   },
   "attributes": {
     "startingYear": {
